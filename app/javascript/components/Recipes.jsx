@@ -10,7 +10,6 @@ class Recipes extends React.Component {
     }
 
     componentDidMount() {
-        // debugger
         const url = "/recipes/index";
         fetch(url)
             .then(response => {
@@ -24,7 +23,6 @@ class Recipes extends React.Component {
     }
 
     render() {
-        // debugger
         const { recipes } = this.state;
         const allRecipes = recipes.map((recipe, index) => (
             <div key={index} className="col-md-6 col-lg-4">
@@ -53,6 +51,23 @@ class Recipes extends React.Component {
 
         return (
             <>
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <a className="navbar-brand" href="/">RecipeRepo</a>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item active">
+                                <a className="nav-link" href="/recipes">Recipes <span className="sr-only">(current)</span></a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/recipe">Submit Recipe</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
                 <section className="jumbotron jumbotron-fluid text-center">
                     <div className="container py-5">
                         <h1 className="display-4">Recipe Repo</h1>
@@ -71,6 +86,7 @@ class Recipes extends React.Component {
                         <div className="row">
                             {recipes.length > 0 ? allRecipes : noRecipe}
                         </div>
+
                         <Link to="/" className="btn btn-link">
                             Home
                         </Link>

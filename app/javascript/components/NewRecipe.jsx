@@ -22,7 +22,6 @@ class NewRecipe extends React.Component {
     }
 
     onChange(event) {
-        // debugger
         this.setState({ [event.target.name]: event.target.value });
     }
 
